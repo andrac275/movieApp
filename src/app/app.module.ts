@@ -7,7 +7,12 @@ import { MoviesListComponent } from './components/movies-list/movies-list.compon
 import { SearchMovieComponent } from './components/search-movie/search-movie.component';
 
 @NgModule({
-  declarations: [AppComponent, MovieComponent, MoviesListComponent, SearchMovieComponent],
+  declarations: [
+    AppComponent,
+    MovieComponent,
+    MoviesListComponent,
+    SearchMovieComponent,
+  ],
   imports: [BrowserModule],
   providers: [],
   bootstrap: [AppComponent],
