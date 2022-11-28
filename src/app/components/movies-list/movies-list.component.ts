@@ -10,12 +10,8 @@ export class MoviesListComponent {
   movies: any[] = [];
   constructor(private moviesService: MoviesService) {}
   getMoviesByName(movieName: string) {
-    this.moviesService.getMoviesByName(movieName).subscribe((data) => {
-      if (data.Response === 'False') {
-        //this.movies = [];
-      } else {
-        this.movies = data.Search;
-      }
+    this.moviesService.getMoviesByName(movieName).subscribe((movies) => {
+      this.movies = movies !== undefined ? movies : [];
     });
   }
 }
