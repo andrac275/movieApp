@@ -1,3 +1,14 @@
-<label>Search for the name of a movie:</label>
-<input type="text" #search placeholder="Movie's name..." /><br />
-<button (click)="getMoviesByName(search.value)">Search it!</button>
+<div class="app">
+  <div class="search">
+    <label>Search for the name of a movie:</label>
+    <input type="text" #search placeholder="Movie's name..." /><br />
+    <button (click)="getMoviesByName(search.value)">Search it!</button>
+  </div>
+  <div *ngIf="movies.length > 0; else noMovies" class="listMovies">
+    <h2>Movie´s list with that name:</h2>
+    <movie *ngFor="let movi of movies" [movie]="movi"></movie>
+  </div>
+  <ng-template #noMovies class="noMovies">
+    <h3>No movies found!</h3>
+  </ng-template>
+</div>

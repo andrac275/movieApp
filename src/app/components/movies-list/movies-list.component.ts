@@ -7,11 +7,15 @@ import { MoviesService } from 'src/app/services/movies.service';
   styleUrls: ['./movies-list.component.css'],
 })
 export class MoviesListComponent {
-  private movies: any[] = [];
+  movies: any[] = [];
   constructor(private moviesService: MoviesService) {}
   getMoviesByName(movieName: string) {
     this.moviesService.getMoviesByName(movieName).subscribe((data) => {
-      this.movies = data.Search;
+      if (data.Response === 'False') {
+        //this.movies = [];
+      } else {
+        this.movies = data.Search;
+      }
     });
   }
 }
