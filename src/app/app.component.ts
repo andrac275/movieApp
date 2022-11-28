@@ -8,9 +8,7 @@ import { MoviesService } from './services/movies.service';
 })
 export class AppComponent {
   title = "movie's list!!!";
-  constructor(private moviesService: MoviesService) {
-    this.moviesService.getMovies().then((response) => {
-      console.log(response);
-    });
-  }
+  message = 'Search for a movie';
+
+  constructor(private moviesService: MoviesService) {}
 }

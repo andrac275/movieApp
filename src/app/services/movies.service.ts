@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import axios from 'axios';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MoviesService {
-  url = 'https://api.themoviedb.org/3/';
+  private API_URL: string = 'http://www.omdbapi.com/?';
+  private API_KEY: string = '&apikey=' + environment.API_KEY;
   constructor(private http: HttpClient) {}
-  getMovies() {
-    return axios.get(this.url + 'movie/505642?api_key=' + environment.API_KEY);
+  getMoviesByName(movieName: string): Observable<any> {
+    return this.http.get(this.API_URL + 's=' + movieName + this.API_KEY);
   }
 }
